@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-const BASE_URL = "https://jsonplaceholder.typicode.com";
+import { fetchUsers } from "../../pages/api/users";
 
 // Async Thunks
 export const getUsers = createAsyncThunk("user/getUsers", async () => {
   try {
-    return await fetch(`${BASE_URL}/users`).then((res) => res.json());
+    return await fetchUsers();
   } catch (error) {
     console.error(error);
   }
